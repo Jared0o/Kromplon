@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KromplonApi", "src\Apps\KromplonApi\KromplonApi.csproj", "{1CD477C4-A119-4FFF-A69A-ACA4EC5E47AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kromplon.Api", "src\Apps\Kromplon.Api\Kromplon.Api.csproj", "{1CD477C4-A119-4FFF-A69A-ACA4EC5E47AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
