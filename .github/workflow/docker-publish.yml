@@ -1,0 +1,40 @@
+name: Build and Push Apps
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service:
+          - name: kromplon-api
+            dockerfile: src/Apps/Kromplon.Api/Dockerfile
+            tag: kromplon-api
+
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push ${{ matrix.service.name }}
+        uses: docker/build-push-action@v5
+        with:
+          context: .                            # <- katalog główny gdzie ma być uruchamiany docker build
+          file: ./${{ matrix.service.dockerfile }}
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}-${{ matrix.service.tag }}:latest
+            ghcr.io/${{ github.repository }}-${{ matrix.service.tag }}:${{ github.sha }}
