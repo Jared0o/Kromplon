@@ -8,6 +8,6 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapGet("/", ()=> "Hello From Kromplon.Api!");
+app.MapGet("/", ()=> "Hello From Kromplon.Api! It's awesome api");
 
 app.Run();
