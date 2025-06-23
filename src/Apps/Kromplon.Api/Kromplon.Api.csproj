@@ -1,5 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="NSwag.AspNetCore" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\Commons\Kromplon.Commons.Abstractions\Kromplon.Commons.Abstractions.csproj" />
+      <ProjectReference Include="..\..\Modules\Users\Kromplon.Modules.Users.Api\Kromplon.Modules.Users.Api.csproj" />
     </ItemGroup>
 </Project>

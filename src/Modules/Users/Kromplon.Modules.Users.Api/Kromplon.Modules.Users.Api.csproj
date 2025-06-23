@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Commons\Kromplon.Commons.Abstractions\Kromplon.Commons.Abstractions.csproj" />
+      <ProjectReference Include="..\..\..\Commons\Kromplon.Commons.Infrastructure\Kromplon.Commons.Infrastructure.csproj" />
+      <ProjectReference Include="..\Kromplon.Modules.Users.Core\Kromplon.Modules.Users.Core.csproj" />
+      <ProjectReference Include="..\Kromplon.Modules.Users.Infrastructure\Kromplon.Modules.Users.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>

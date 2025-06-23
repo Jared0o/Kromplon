@@ -66,4 +66,4 @@ jobs:
             docker pull ghcr.io/${{ env.REPO_OWNER_LOWER }}/kromplon-api:latest
             docker stop kromplon-api || true
             docker rm kromplon-api || true
-            docker run -d --name kromplon-api -p 8000:80 ghcr.io/${{ env.REPO_OWNER_LOWER }}/kromplon-api:latest
+            docker run -d --name kromplon-api -e ConnectionStrings__UsersContext=${{env.CS_USERS}} --network internal-net -p 8000:80 ghcr.io/${{ env.REPO_OWNER_LOWER }}/kromplon-api:latest

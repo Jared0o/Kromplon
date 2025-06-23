@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Commons\Kromplon.Commons.Infrastructure\Kromplon.Commons.Infrastructure.csproj" />
+      <ProjectReference Include="..\Kromplon.Modules.Users.Core\Kromplon.Modules.Users.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
+    </ItemGroup>
+
+</Project>
