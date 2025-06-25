@@ -69,6 +69,9 @@ jobs:
             docker run -d \
               --name kromplon-api \
               -e ConnectionStrings__UsersContext="${{ secrets.CS_USERS }}" \
+              -e Jwt__Key="${{ secrets.JWT_KEY }}" \
+              -e Jwt__Audience="${{ secrets.JWT_AUDIENCE }}" \
+              -e Jwt__Issuer="${{ secrets.JWT_ISSUER }}" \
               --network internal-net \
               -p 8000:80 \
               ghcr.io/${{ env.REPO_OWNER_LOWER }}/kromplon-api:latest

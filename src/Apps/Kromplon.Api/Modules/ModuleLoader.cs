@@ -35,8 +35,7 @@ internal static class ModuleLoader
         {
             if(!module.Enabled) continue;
             var group = app.MapGroup($"/{module.RoutePrefix}")
-                .WithTags(module.Name)
-                .WithName(module.Name);
+                .WithTags(module.Name);
             module.RegisterEndpoints(group);
             module.RegisterMiddlewares(app);
         }

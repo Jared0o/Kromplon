@@ -1,4 +1,5 @@
 using Kromplon.Api.Modules;
+using Kromplon.Commons.Infrastructure;
 using NSwag;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,6 @@ var modules = ModuleLoader.LoadModules();
 
 ModuleLoader.RegisterModulesServices(modules, builder.Services, builder.Configuration);
 
-builder.Services.AddAuthentication();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApiDocument(x =>
 {
@@ -21,6 +21,7 @@ builder.Services.AddOpenApiDocument(x =>
         Type = OpenApiSecuritySchemeType.ApiKey,
         In = OpenApiSecurityApiKeyLocation.Header,
     });
+    x.OperationProcessors.Add(new NSwag.Generation.Processors.Security.AspNetCoreOperationSecurityScopeProcessor("Bearer"));
 });
 builder.Services.AddCors(opt =>
 {
@@ -32,6 +33,8 @@ builder.Services.AddCors(opt =>
     });
 });
 
+builder.Services.AddInfrastructure(builder.Configuration);
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -41,7 +44,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowAll");
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapGet("/", ()=> "Hello From Kromplon.Api! It's awesome api");
 
 ModuleLoader.RegisterModules(modules, app);
