@@ -3,7 +3,7 @@ using Mediator;
 
 namespace Kromplon.Modules.Users.Core.Commands.SingIn;
 
-public sealed record SignInCommand(SignInDto SignInDto) : IReq<Result<TokensDto>>;
+public sealed record SignInCommand(SignInDto SignInDto) : ICommand<Result<TokensDto>>;
 
 public sealed record SignInDto(string Email, string Password);
 
