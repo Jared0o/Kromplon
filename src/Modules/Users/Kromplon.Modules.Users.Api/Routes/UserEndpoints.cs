@@ -12,6 +12,7 @@ public static class UserEndpoints
 {
     internal static RouteGroupBuilder MapUserEndpoints(this RouteGroupBuilder group)
     {
+        group.MapGet("/", async context => await context.Response.WriteAsync("It's user module in Kromplon api."));
         group.MapPost("/register", CreateUser);
 
         return group;
